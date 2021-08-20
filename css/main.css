@@ -1,0 +1,13 @@
+#videoSource{
+    width: 110px;
+	height: 30px;
+	border-radius: 3px;
+    border-color:#3C9EBB ;
+	color: #fff;
+	background: #3C9EBB;
+	font: 520 16px sans-serif;
+}
+
+#container{
+    padding: 15px;
+}
