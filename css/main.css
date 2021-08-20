@@ -8,6 +8,10 @@
 	font: 520 16px sans-serif;
 }
 
-#container{
-    padding: 15px;
-}
+video {
+	background: #222;
+	margin: 0 0 20px 0;
+	--width: 100%;
+	width: var(--width);
+	height: calc(var(--width) * 0.75);
+  }

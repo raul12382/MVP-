@@ -192,9 +192,10 @@
           </ul>
         </div>
       </nav>
-<div id="container" class="text-center" style="color:#137CCA;   "> <!-- validar si tiene permiso de camara o no -->
+<div id="container" class="text-center p-5"  style="color:#137CCA;"> <!-- validar si tiene permiso de camara o no -->
     <h1>Seleccione la mejor camara para <span>Autocaptura</span>
     </h1>
+    <hr>
     <div class="select">
         <label for="videoSource">Seleccione la camara:</label><select class="select-cam" id="videoSource"></select>
     </div>
@@ -204,13 +205,11 @@
     <h2>Modelo: <span id="model"> </span></h2> 
 
 	<p id="estado"></p>
-    <div class="text-center">
         <video id="video" playsinline autoplay></video>
         <canvas id="canvas" style="display:none"></canvas>
         <div>
             <button type="button" class="btn btn-info" id="tomafoto" onclick="saveStaticDataToFile();">Tomar fotografia</button>
         </div>
-    </div>
     <div class="text-center" id="loader" hidden="true">
         <div class="spinner-border" role="status" >
           <span class="sr-only">Loading...</span>
