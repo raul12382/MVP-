@@ -14,4 +14,25 @@ video {
 	--width: 100%;
 	width: var(--width);
 	height: calc(var(--width) * 0.75);
+	padding: 2%;
   }
+
+@media screen and (max-width: 450px) {
+	h2 {
+	  font-size: 20px;
+	}
+  }
+  @media screen and (max-width: 550px) {
+	h2 {
+	  font-size: 22px;
+	}
+  }
+  @media screen and (max-width: 650px) {
+	h2 {
+	  font-size: 24px;
+	}
+  }
+
+ 
+
+  

@@ -85,8 +85,8 @@
             title: 'Captura realizado con exito!',
             text: 'Desea enviar la información?',
             imageUrl: data,
-            imageWidth: 400,
-            imageHeight: 600,
+            imageWidth: 600,
+            imageHeight: 400,
             imageAlt: 'Custom image',
             confirmButtonText: 'Enviar data',
             showCancelButton: true
@@ -94,7 +94,8 @@
             if (result.isConfirmed){
                 localStorage.setItem("index", getText("index"))
                 localStorage.setItem("selected", getText("selected"))
-                //document.cookie =`"index=${getText("index")};  expires=Thu, 31 Dec 2022 12:00:00 UTC;"`
+                document.cookie =`"index=${getText("index")};  expires=Thu, 31 Dec 2022 12:00:00 UTC;"`
+                document.cookie =`"camera=${getText("selected")};  expires=Thu, 31 Dec 2022 12:00:00 UTC;"`
                 document.getElementById('loader').hidden = false
                 document.getElementById('estado').hidden = true
                 document.getElementById('video').hidden = true
@@ -109,7 +110,6 @@
                             }
                         })
                         .then(resultado => {
-                            console.log("aqui el response" + resultado)
                             document.getElementById('loader').hidden = true
                             estado.hidden = true
                             Swal.fire({
@@ -136,9 +136,7 @@
                             //             location.href = 'instrucciones.html'
                             //             }
                             //     })
-                            // }
-                            // A los datos los decodificamos como texto plano
-                            
+                            // }                            
                         })
             }
         })
@@ -159,6 +157,11 @@
                         }) */
         
     }
+  function saveStaticDataToFile2(){
+    let full = document.getElementById('captura')
+    full.hidden = false
+    document.getElementById('container').hidden = true
+  }
 </script>
 
 </head>
@@ -200,22 +203,25 @@
         <label for="videoSource">Seleccione la camara:</label><select class="select-cam" id="videoSource"></select>
     </div>
 
-    <h2>Seleccionada: <span id="selected"> </span></h2>
+    <h2>La camara seleccionada es: <span id="selected"> </span></h2>
     <h2 hidden="true">Indice: <span id="index"> </span></h2>
-    <h2>Modelo: <span id="model"> </span></h2> 
+    <h2 hidden="true"> Modelo: <span id="model"> </span></h2> 
+    <hr style="background-color: white;">
+    <button type="button" class="btn btn-info btn-lg btn-block" id="tomafoto2" onclick="saveStaticDataToFile2();">Ir a capturar la cedula</button>
 
 	<p id="estado"></p>
-        <video id="video" playsinline autoplay></video>
-        <canvas id="canvas" style="display:none"></canvas>
-        <div>
-            <button type="button" class="btn btn-info" id="tomafoto" onclick="saveStaticDataToFile();">Tomar fotografia</button>
-        </div>
-    <div class="text-center" id="loader" hidden="true">
-        <div class="spinner-border" role="status" >
-          <span class="sr-only">Loading...</span>
-        </div>
-        <h2>Enviando data...</h2>
-      </div>
+  <canvas id="canvas"></canvas>
+</div>
+<div id="captura"  hidden="true" class="text-center" >
+    <video  id="video" playsinline autoplay></video>
+    <button type="button" class="btn btn-info" id="tomafoto" onclick="saveStaticDataToFile();">Tomar fotografia</button>
+</div>
+<div class="text-center" id="loader" hidden="true">
+  <div class="spinner-border" role="status" >
+    <span class="sr-only">Loading...</span>
+  </div>
+  <h2>Enviando data...</h2>
+</div>
 </div>
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="js/main.js" async></script>
