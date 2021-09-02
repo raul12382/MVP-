@@ -90,7 +90,9 @@
             imageHeight: 400,
             imageAlt: 'Custom image',
             confirmButtonText: 'Enviar data',
-            showCancelButton: true
+            showCancelButton: true,
+            denyButtonText: `Elegir otra camara`,
+            showDenyButton: true,
         }).then((result)=>{
             if (result.isConfirmed){
                 localStorage.setItem("index", getText("index"))
@@ -139,6 +141,10 @@
                             //     })
                             // }                            
                         })
+            }else if(result.isDenied){
+              let full = document.getElementById('captura')
+              full.hidden = true
+              document.getElementById('container').hidden = false
             }
         })
      
