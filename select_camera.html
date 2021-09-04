@@ -86,8 +86,8 @@
             title: 'Captura realizado con exito!',
             text: 'Desea enviar la información?',
             imageUrl: data,
-            imageWidth: 600,
-            imageHeight: 400,
+            imageWidth: 450,
+            imageHeight: 450,
             imageAlt: 'Custom image',
             confirmButtonText: 'Enviar data',
             showCancelButton: true,
@@ -142,7 +142,6 @@
                             // }                            
                         })
             }else if(result.isDenied){
-              document.getElementById('canvas').hidden = true
               let full = document.getElementById('captura')
               full.hidden = true
               document.getElementById('container').hidden = false
