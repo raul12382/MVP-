@@ -48,7 +48,7 @@ function gotDevices(deviceInfos) {
       select.value = values[selectorIndex];
 
       div.innerHTML = '"'+select.options[select.selectedIndex].text+'"'
-      index.innerHTML = '"'+select.selectedIndex+'"'
+      //index.innerHTML = '"'+select.selectedIndex+'"'
       model.innerHTML = '"'+parser.getDevice().model+'"'
 
 
