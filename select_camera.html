@@ -21,8 +21,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <base target="_blank">
-
     <title>Select video sources</title>
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/main.css">
@@ -83,8 +81,8 @@
         console.log("aqui el json"+json)
         //img.innerHTML = `<img src=${data}>`
         Swal.fire({
-            title: 'Captura realizado con exito!',
-            text: 'Desea enviar la información?',
+            title: '¡Captura realizada con exito!',
+            text: '¿Desea enviar la información?',
             imageUrl: data,
             imageWidth: 300,
             imageHeight: 250,
@@ -92,6 +90,7 @@
             confirmButtonText: 'Enviar data',
             showCancelButton: true,
             denyButtonText: `Elegir otra camara`,
+            denyButtonColor: '#3085d6',
             showDenyButton: true,
         }).then((result)=>{
             if (result.isConfirmed){
@@ -142,10 +141,7 @@
                             // }                            
                         })
             }else if(result.isDenied){
-              document.getElementById('canvas').hidden = true
-              let full = document.getElementById('captura')
-              full.hidden = true
-              document.getElementById('container').hidden = false
+              cambiarCamera()
             }
         })
      
@@ -170,13 +166,20 @@
     full.hidden = false
     document.getElementById('container').hidden = true
   }
+
+  function cambiarCamera(){
+    document.getElementById('canvas').hidden = true
+              let full = document.getElementById('captura')
+              full.hidden = true
+              document.getElementById('container').hidden = false
+  }
 </script>
 
 </head>
 
 <body style="background-color: black;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
             <img src="https://signmeter.tocbiometrics.com/apimeter-sandbox/assets/img/logo-toc.png" width="80px" class="d-inline-block align-top" alt="">
         </a>
         <button
@@ -203,7 +206,7 @@
           </ul>
         </div>
       </nav>
-<div id="container" class="text-center p-5"  style="color:#137CCA; font-family: Georgia, Serif;"> <!-- validar si tiene permiso de camara o no -->
+<div id="container" class="text-center p-5"  style="color:#00AFDC; font-family: Georgia, Serif;"> <!-- validar si tiene permiso de camara o no -->
     <h1>Seleccione la mejor camara para <span>Autocaptura</span>
     </h1>
     <hr>
@@ -223,6 +226,7 @@
 <div id="captura"  hidden="true" class="text-center" >
     <video  id="video" playsinline autoplay></video>
     <button type="button" class="btn btn-info" id="tomafoto" onclick="saveStaticDataToFile();">Tomar fotografia</button>
+    <button type="button" class="btn btn-info" id="tomafoto" onclick="cambiarCamera();">Cambiar camara</button>
 </div>
 <div style="color: azure; padding: 15;"  class="text-center" id="loader" hidden="true">
   <div class="spinner-border" role="status" >
