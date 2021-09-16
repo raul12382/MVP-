@@ -17,6 +17,8 @@ const selectors = [videoSelect];
 let div = document.getElementById('selected');
 let index = document.getElementById('index');
 let model = document.getElementById('model');
+let seleccionados = document.getElementById('seleccionados');
+
 
 var parser = new UAParser(navigator.userAgent);
 
@@ -51,6 +53,7 @@ function gotDevices(deviceInfos) {
       index.innerHTML = '"'+select.selectedIndex+'"'
       model.innerHTML = '"'+parser.getDevice().model+'"'
 
+      seleccionados.innerHTML= select.options[select.selectedIndex].text
 
       //console.log()
     }
